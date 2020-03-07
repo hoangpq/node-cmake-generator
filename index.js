@@ -19,7 +19,7 @@ async function generateCMakeLists(nodeDir, pythonPath, cmakeConfig, skipConfigur
 
 function configure(nodeDir) {
   return new Promise((resolve, reject) => {
-    const configure = spawn(path.join(nodeDir, 'configure'), {stdio: 'inherit'})
+    const configure = spawn(path.join(nodeDir, 'configure', '--openssl-no-asm'), {stdio: 'inherit'})
 
     configure.on('close', code => {
       if (code) {
